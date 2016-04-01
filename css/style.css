@@ -1,0 +1,124 @@
+.clearfix {
+	min-height: 1%;
+}
+.clearfix:after {
+	display: block;
+	content: "";
+	font-size: 0;
+	line-height: 0;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+body {
+	font:15px Calibri, sans-serif;
+}
+
+/*Подсветка ячейки в выделенной группе/строке/столбце*/
+.selected_td {
+	background-color: #b7dbff;
+	border: 1px solid #dadcdd;
+}
+
+/*Подсветка заголовка(th) в выделенной строке/столбце*/
+.selected_line {
+	background-color: #919191;
+}
+
+/*Подсветка соответствующих заголовков(th) при фокусе на ячейку либо выделении группы/строки/стобца ячеек*/
+.coordinate_td {
+	background-color: #ecc314;
+}
+
+/*Свойства активного(текущего) листа таблицы*/
+.active_sheet {
+	background-color: #fff;
+	font-weight: bold;
+	border-top: 1px solid #fff;
+}
+
+.active_sheet:hover {
+	background-color: #fff;
+}
+
+	table { 
+	    border: 1px solid #dadcdd;
+	    border-collapse: collapse;
+	    margin: 50px auto 0 auto;
+	    position: relative;
+	}
+
+	table::after {
+    	content: ''; 
+    	position: absolute;
+    	top: 5px;
+    	left: 12px;
+    	border: 5px solid transparent;
+    	border-right: 5px solid #bdc2c7;
+    	border-bottom: 5px solid #bdc2c7;
+    }
+		
+		th { 
+		    text-align: left;
+		    border: 1px solid #b1b5ba;
+		    text-align: center;
+		    background-color: #dfe3e8;
+		    text-transform: uppercase;
+		}
+
+		th.triangle:hover {
+			background-color: #919191;
+		}
+
+		th.row {
+			width: 25px;
+		}
+
+		th:hover {
+			background-color: #fde47b
+		}
+
+		td { 
+			border: 1px solid #dadcdd;
+		    width: 63px;
+		}
+
+		input {
+			border: none;
+			background: transparent;
+			width: 100%;
+			cursor: cell;
+		}
+		
+		input:hover {
+			background-color: #fff9a2;
+		}
+
+		input:focus {
+			background-color: #fde47b;
+		}
+		
+		.sheets {
+			position: relative;
+			display: table;
+			margin: 0 0 0 440px;
+			font-size: 0;
+		}
+		
+		span {
+			display: inline-block;
+			margin: -2px 0 0 0;
+			padding: 3px 7px;
+			background-color: #f1f3f5;
+			border: 1px solid #dadcdd;
+			border-bottom-left-radius: 7px;
+			border-bottom-right-radius: 7px;
+			font:15px Calibri, sans-serif;
+			cursor: default;
+		}
+
+		span:hover {
+			background-color: #c4c8cc;
+		}
+
