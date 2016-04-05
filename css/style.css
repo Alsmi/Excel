@@ -13,12 +13,12 @@
 
 body {
 	font:15px Calibri, sans-serif;
+	padding-top: 24px;
 }
 
 /*Подсветка ячейки в выделенной группе/строке/столбце*/
 .selected_td {
 	background-color: #b7dbff;
-	border: 1px solid #dadcdd;
 }
 
 /*Подсветка заголовка(th) в выделенной строке/столбце*/
@@ -41,23 +41,17 @@ body {
 .active_sheet:hover {
 	background-color: #fff;
 }
+	thead {
+		top: 24px;
+		left: 0;
+		right: 0;
+	}
 
 	table { 
 	    border: 1px solid #dadcdd;
 	    border-collapse: collapse;
-	    margin: 50px auto 0 auto;
-	    position: relative;
+	    clear:both;
 	}
-
-	table::after {
-    	content: ''; 
-    	position: absolute;
-    	top: 5px;
-    	left: 12px;
-    	border: 5px solid transparent;
-    	border-right: 5px solid #bdc2c7;
-    	border-bottom: 5px solid #bdc2c7;
-    }
 		
 		th { 
 		    text-align: left;
@@ -67,13 +61,19 @@ body {
 		    text-transform: uppercase;
 		}
 
-		th.triangle:hover {
-			background-color: #919191;
-		}
+			#tableHeadRow th div {
+				width: 63px;
+			}
 
-		th.row {
-			width: 25px;
-		}
+			#tableHeadRow th:first-child div {
+				width: 30px;
+			}
+
+			th div {
+				display: block;
+				height: 20px;
+				width: 30px;
+			}
 
 		th:hover {
 			background-color: #fde47b
@@ -81,7 +81,6 @@ body {
 
 		td { 
 			border: 1px solid #dadcdd;
-		    width: 63px;
 		}
 
 		input {
@@ -89,6 +88,8 @@ body {
 			background: transparent;
 			width: 100%;
 			cursor: cell;
+			display: block;
+			width: 63px; 
 		}
 		
 		input:hover {
@@ -99,26 +100,30 @@ body {
 			background-color: #fde47b;
 		}
 		
-		.sheets {
-			position: relative;
-			display: table;
-			margin: 0 0 0 440px;
-			font-size: 0;
-		}
-		
-		span {
-			display: inline-block;
-			margin: -2px 0 0 0;
-			padding: 3px 7px;
-			background-color: #f1f3f5;
-			border: 1px solid #dadcdd;
-			border-bottom-left-radius: 7px;
-			border-bottom-right-radius: 7px;
-			font:15px Calibri, sans-serif;
-			cursor: default;
-		}
+.sheets {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	font-size: 0;
+	background: #fff;
+	text-align: right;
+	border-bottom: 1px solid #dadcdd;
+}
 
-		span:hover {
-			background-color: #c4c8cc;
-		}
+span {
+	display: inline-block;
+	margin: -2px 0 0 0;
+	padding: 3px 7px;
+	background-color: #f1f3f5;
+	border: 1px solid #dadcdd;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	font:15px Calibri, sans-serif;
+	cursor: default;
+}
+
+span:hover {
+	background-color: #c4c8cc;
+}
 
