@@ -11,18 +11,20 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="sheets clearfix">
-        <span class="active_sheet">Sheet1</span>
-        <span>Sheet2</span>
-        <span>Sheet3</span>
-        <span class="new_sheet">New</span>
+    <div id="excel">
+        <div class="sheets clearfix">
+            <span id="new_sheet">New</span>
+            <span class="active_sheet">Sheet1</span>
+            <span>Sheet2</span>
+            <span>Sheet3</span>
+        </div>
+        <table id="table">
+            <thead id="thead">
+                <tr id="tableHeadRow"></tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+        <script type="text/javascript" src="scripts/main.js"></script>
     </div>
-    <table id="table">
-        <thead id="thead">
-            <tr id="tableHeadRow"></tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-    </table>
-    <script type="text/javascript" src="scripts/main.js"></script>
 </body>
 </html>

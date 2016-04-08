@@ -33,13 +33,15 @@ body {
 
 /*Свойства активного(текущего) листа таблицы*/
 .active_sheet {
-	background-color: #fff;
+	background-color: #dfe3e8;
 	font-weight: bold;
-	border-top: 1px solid #fff;
+	border: 1px solid #dfe3e8;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .active_sheet:hover {
-	background-color: #fff;
+	background-color: #dfe3e8;
 }
 	thead {
 		top: 24px;
@@ -115,12 +117,16 @@ span {
 	display: inline-block;
 	margin: -2px 0 0 0;
 	padding: 3px 7px;
-	background-color: #f1f3f5;
+	background-color: #fff;
 	border: 1px solid #dadcdd;
 	border-top-left-radius: 7px;
 	border-top-right-radius: 7px;
 	font:15px Calibri, sans-serif;
 	cursor: default;
+}
+
+#new_sheet {
+	background-color: #fff9a2;
 }
 
 span:hover {
