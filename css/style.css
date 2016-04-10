@@ -43,11 +43,6 @@ body {
 .active_sheet:hover {
 	background-color: #dfe3e8;
 }
-	thead {
-		top: 24px;
-		left: 0;
-		right: 0;
-	}
 
 	table { 
 	    border: 1px solid #dadcdd;
@@ -83,6 +78,11 @@ body {
 
 		td { 
 			border: 1px solid #dadcdd;
+			cursor: cell;
+		}
+
+		td:hover {
+			background-color: #fff9a2;
 		}
 
 		input {
