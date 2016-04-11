@@ -106,9 +106,7 @@ excel.addEventListener("blur", function(event) {
 		myObject.val = filled_cells[i].innerHTML;
 		storage_memory.push(myObject);
 	}
-	
-	console.log(storage_memory);
-	localStorage.setItem(JSON.stringify(active_sheet), JSON.stringify(storage_memory));
+	localStorage.setItem(active_sheet[0].innerHTML, JSON.stringify(storage_memory));
 }, true);
 
 excel.addEventListener("contextmenu", function(event){
