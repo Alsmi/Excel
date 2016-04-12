@@ -147,7 +147,7 @@ excel.addEventListener("contextmenu", function(event){
 	if (event.target.tagName === 'SPAN' && event.target.id != 'new_sheet') {
 		var x = confirm('Are you realy want to delete this SHEET?');
    		if (x == true) {
-      		this.parentNode.removeChild(event.target);
+      		event.target.parentNode.removeChild(event.target);
    		}
 	}
 });
