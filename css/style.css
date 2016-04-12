@@ -51,11 +51,11 @@ body {
 	}
 		
 		th { 
-		    text-align: left;
 		    border: 1px solid #b1b5ba;
 		    text-align: center;
 		    background-color: #dfe3e8;
 		    text-transform: uppercase;
+		    font-size: 0;
 		}
 
 			#tableHeadRow th div {
@@ -67,9 +67,9 @@ body {
 			}
 
 			th div {
-				display: block;
+				display: inline-block;
 				height: 20px;
-				width: 30px;
+				font-size: 15px;
 			}
 
 		th:hover {
