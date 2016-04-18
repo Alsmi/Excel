@@ -80,6 +80,7 @@ body {
 		td { 
 			border: 1px solid #dadcdd;
 			cursor: cell;
+			text-align: right;
 		}
 
 		td:hover {
@@ -92,7 +93,7 @@ body {
 			width: 100%;
 			cursor: cell;
 			display: block;
-			width: 63px; 
+			width: 63px;
 		}
 		
 		input:hover {
