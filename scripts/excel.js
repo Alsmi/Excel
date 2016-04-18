@@ -152,13 +152,13 @@ function contextmenuSpan () {
 function setStorageObject () {
 	var storage_memory = [];
 	
-	for (var i = 0; i < filled_cells.length; i++) {	
+	for (var i = 0; i < td.length; i++) {	
 				
-		if (filled_cells[i].innerHTML != '') {
+		if (td[i].innerHTML != '') {
 			var myObject = {};
-				myObject.row = filled_cells[i].parentNode.rowIndex;
-				myObject.cell = filled_cells[i].cellIndex;
-				myObject.val = filled_cells[i].innerHTML;
+				myObject.row = td[i].parentNode.rowIndex;
+				myObject.cell = td[i].cellIndex;
+				myObject.val = td[i].innerHTML;
 			
 				storage_memory.push(myObject);
 				
@@ -221,19 +221,7 @@ function loadJSONData() {
     xhttp.open("POST", "test.php", true);
     xhttp.send(JSON.stringify(result_memory));
 }
-    function getJSONData(path, callback) {
-    var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = function() {
-        if (httpRequest.readyState === 4) {
-            if (httpRequest.status === 200) {
-                var data = JSON.parse(httpRequest.responseText);
-                if (callback) callback(data);
-            }
-        }
-    };
-    httpRequest.open('GET', path);
-    httpRequest.send(); 
-}
+  
 function getJSONData(path, callback) {
 	
     var httpRequest = new XMLHttpRequest();

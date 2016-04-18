@@ -39,15 +39,15 @@ excel.addEventListener("click", function(event){
  	else if (event.target.tagName === 'SPAN') {
  		onClickSpan();
 	 	getStorageObject();
-	 	getJSONData('textfile.txt', function(data){
-	    		for (var i = 0; i < data.length; i++) {
-					for (var k = 0; k < td.length; k++) {
-						if (active_sheet[0].innerHTML === data[i].sheet && td[k].parentNode.rowIndex === data[i].row && td[k].cellIndex === data[i].cell) {
-							td[k].innerHTML = data[i].val;
-						}
-					}
-				}	
-			});
+	 	// getJSONData('textfile.txt', function(data){
+	  //   		for (var i = 0; i < data.length; i++) {
+			// 		for (var k = 0; k < td.length; k++) {
+			// 			if (active_sheet[0].innerHTML === data[i].sheet && td[k].parentNode.rowIndex === data[i].row && td[k].cellIndex === data[i].cell) {
+			// 				td[k].innerHTML = data[i].val;
+			// 			}
+			// 		}
+			// 	}	
+			// });
  	}
 
  	else if (event.target.tagName === 'TD') {
@@ -65,14 +65,14 @@ excel.addEventListener("contextmenu", function(event){
 
 window.addEventListener("load", getStorageObject());
 
-window.addEventListener("load", getJSONData('textfile.txt', function(data){
-	for (var i = 0; i < data.length; i++) {
-		for (var k = 0; k < td.length; k++) {
-			if (active_sheet[0].innerHTML === data[i].sheet && td[k].parentNode.rowIndex === data[i].row && td[k].cellIndex === data[i].cell) {
-				td[k].innerHTML = data[i].val;
-			}
-		}
-	}	
-}));
+// window.addEventListener("load", getJSONData('textfile.txt', function(data){
+// 	for (var i = 0; i < data.length; i++) {
+// 		for (var k = 0; k < td.length; k++) {
+// 			if (active_sheet[0].innerHTML === data[i].sheet && td[k].parentNode.rowIndex === data[i].row && td[k].cellIndex === data[i].cell) {
+// 				td[k].innerHTML = data[i].val;
+// 			}
+// 		}
+// 	}	
+// }));
 
 
