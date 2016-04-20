@@ -1,4 +1,5 @@
-var count = 30;
+var table = new Excel (30);
+
 var tbody = document.getElementById('tbody');
 var tableHeadRow = document.getElementById('tableHeadRow');
 var tr, th, div, input;
@@ -7,7 +8,7 @@ var alphabetLength = alphabet.length;
 var active_sheet = document.getElementsByClassName('active_sheet');
 var filled_cells = document.getElementsByClassName('filled');
 
-createTable();
+table.createTable();
 
 var excel = document.getElementById('excel');
 var lines = document.getElementsByClassName('line');
@@ -24,24 +25,24 @@ var server_memory = [];
 
 excel.addEventListener("blur", function(event) {
 	if (event.target.tagName === 'INPUT') {
-		onBlurInput();
-		setStorageObject();
-		loadJSONData();
+		table.onBlurInput();
+		table.setStorageObject();
+		table.loadJSONData();
 	}
 }, true);
 
 excel.addEventListener("click", function(event){
 	
 	if (event.target.classList.contains('line')) {	
-		onClickTh();
+		table.onClickTh();
 	}
 
  	else if (event.target.tagName === 'SPAN') {
- 		onClickSpan();
-	 	getStorageObject();
-	 	// getJSONData('textfile.txt', function(data){
-	  //   		for (var i = 0; i < data.length; i++) {
-			// 		for (var k = 0; k < td.length; k++) {
+ 		table.onClickSpan();
+	 	table.getStorageObject();
+	 	// table.getJSONData('textfile.txt', function(data){
+	  //   		for (let i = 0; i < data.length; i++) {
+			// 		for (let k = 0; k < td.length; k++) {
 			// 			if (active_sheet[0].innerHTML === data[i].sheet && td[k].parentNode.rowIndex === data[i].row && td[k].cellIndex === data[i].cell) {
 			// 				td[k].innerHTML = data[i].val;
 			// 			}
@@ -51,23 +52,23 @@ excel.addEventListener("click", function(event){
  	}
 
  	else if (event.target.tagName === 'TD') {
- 		onClickTd();
+ 		table.onClickTd();
  	}
 
  });
 
 excel.addEventListener("contextmenu", function(event){
 	if (event.target.tagName === 'SPAN' && event.target.id != 'new_sheet') {
-		contextmenuSpan();
+		table.contextmenuSpan();
 	}
 });
 
 
-window.addEventListener("load", getStorageObject());
+window.addEventListener("load", table.getStorageObject());
 
-// window.addEventListener("load", getJSONData('textfile.txt', function(data){
-// 	for (var i = 0; i < data.length; i++) {
-// 		for (var k = 0; k < td.length; k++) {
+// window.addEventListener("load", table.getJSONData('textfile.txt', function(data){
+// 	for (let i = 0; i < data.length; i++) {
+// 		for (let k = 0; k < td.length; k++) {
 // 			if (active_sheet[0].innerHTML === data[i].sheet && td[k].parentNode.rowIndex === data[i].row && td[k].cellIndex === data[i].cell) {
 // 				td[k].innerHTML = data[i].val;
 // 			}
