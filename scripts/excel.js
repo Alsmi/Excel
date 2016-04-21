@@ -185,10 +185,11 @@ class Excel {
 				for (let k = 0; k < td.length; k++) {
 					if (td[k].parentNode.rowIndex === MyStorageObject[i].row && td[k].cellIndex === MyStorageObject[i].cell) {
 						td[k].innerHTML = MyStorageObject[i].val;
+						td[k].classList.add('filled');
 					}
 				}
 			}
-		}	
+		}
 	}
 
 	loadJSONData() {
