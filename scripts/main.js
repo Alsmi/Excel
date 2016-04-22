@@ -1,4 +1,4 @@
-var table = new Excel (30);
+var table = new Excel (50);
 
 var tbody = document.getElementById('tbody');
 var tableHeadRow = document.getElementById('tableHeadRow');
@@ -19,7 +19,6 @@ var td = document.getElementsByTagName('td');
 var selected_cells = document.getElementsByClassName('selected_td');
 var coordinate_td = document.getElementsByClassName('coordinate_td');
 var server_memory = [];
-
 
 
 
@@ -63,6 +62,11 @@ excel.addEventListener("contextmenu", function(event){
 	}
 });
 
+excel.addEventListener("keydown", function(event){
+	if (event.target.tagName === 'INPUT') {
+		table.getMath ();
+	}
+});
 
 window.addEventListener("load", table.getStorageObject());
 
