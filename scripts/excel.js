@@ -250,28 +250,14 @@ class Excel {
 	}
 
 	getMath () {
-		if(event.keyCode === 13 && event.target.value[0] === '=') {
-			var str = event.target.value.replace('=', " ");
-			for (let i = 0; i < str.length; i++) {
-				var arr = str.split(/[^0-9]/gim);
-				arr.splice(0,1);
-				if (str[i] === '+') {
-					event.target.value = parseInt(arr[0]) + parseInt(arr[1]);
-				}
-				else if (str[i] === '-') {
-					event.target.value = parseInt(arr[0]) - parseInt(arr[1]);
-				}
-				else if (str[i] === '*') {
-					event.target.value = parseInt(arr[0]) * parseInt(arr[1]);
-				}
-				else if (str[i] === '/') {
-					event.target.value = parseInt(arr[0]) / parseInt(arr[1]);
-				}
-			}
-		}
+		var str = event.target.value.replace('=', "");	
+		event.target.value = eval(str);
 	}
 
 }
+
+
+
 
 
 

@@ -24,6 +24,9 @@ var server_memory = [];
 
 excel.addEventListener("blur", function(event) {
 	if (event.target.tagName === 'INPUT') {
+		if(event.target.value[0] === '=') {
+			table.getMath ();
+		}
 		table.onBlurInput();
 		table.setStorageObject();
 		table.loadJSONData();
@@ -64,7 +67,9 @@ excel.addEventListener("contextmenu", function(event){
 
 excel.addEventListener("keydown", function(event){
 	if (event.target.tagName === 'INPUT') {
-		table.getMath ();
+		if(event.keyCode === 13 && event.target.value[0] === '=') {
+			table.getMath ();
+		}
 	}
 });
 
