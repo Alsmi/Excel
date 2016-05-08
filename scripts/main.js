@@ -3,10 +3,11 @@ var table = new Excel (50);
 var tbody = document.getElementById('tbody');
 var tableHeadRow = document.getElementById('tableHeadRow');
 var tr, th, div, input;
-var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var alphabetLength = alphabet.length;
 var active_sheet = document.getElementsByClassName('active_sheet');
 var filled_cells = document.getElementsByClassName('filled');
+var currCol;
 
 table.createTable();
 

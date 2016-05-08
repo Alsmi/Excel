@@ -4,12 +4,12 @@ class Excel {
     }
    	
 	createTable() {
-
 		alphabet.forEach(function(item, i, arr) {
 			for (let k = 1; k <= alphabetLength; k++){
 				arr.push( item + arr[k-1] );
 			}
 		});
+		
 
 		for (let i = 1; i <= this.count; i++) {
 			tr = document.createElement('tr');
@@ -17,18 +17,19 @@ class Excel {
 			div = document.createElement('div');
 			div.setAttribute('class','line');
 
-			tr.appendChild(th).appendChild(div)
-
-			for (let n = 1; n <= this.count; n++) {
-				
-				td = document.createElement('td');
-				tr.appendChild(td);
-			}
+			tr.appendChild(th).appendChild(div);
 			
 			if (i > 1) {
 				if (i < alphabet.length) {
 					div.innerHTML = alphabet[i-2];
 				}
+			}
+
+			for (let n = 1; n <= this.count; n++) {
+				currCol = alphabet[n-1];
+				td = document.createElement('td');
+				tr.appendChild(td);
+				td.setAttribute('id', currCol + i);
 			}
 
 			tbody.appendChild(tr);
@@ -250,10 +251,20 @@ class Excel {
 	}
 
 	getMath () {
-		var str = event.target.value.replace('=', "");	
+		for (let i=0; i<td.length; i++){
+			
+			if (event.target.value.indexOf(td[i].id) != -1) {
+				if (td[i].innerText === '') {
+					event.target.value = event.target.value.replace(td[i].id, '0');
+				}
+				else {
+					event.target.value = event.target.value.replace(td[i].id, td[i].innerText);
+				}				
+			}
+		}
+		var str = event.target.value.replace('=', "");
 		event.target.value = eval(str);
 	}
-
 }
 
 
