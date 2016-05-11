@@ -13,7 +13,7 @@
 
 body {
 	font:15px Calibri, sans-serif;
-	padding-top: 24px;
+	padding-top: 53px;
 }
 
 /*Подсветка ячейки в выделенной группе/строке/столбце*/
@@ -32,7 +32,7 @@ body {
 }
 
 /*Свойства активного(текущего) листа таблицы*/
-.active_sheet {
+.sheets .active_sheet {
 	background-color: #dfe3e8;
 	font-weight: bold;
 	border: 1px solid #dfe3e8;
@@ -40,7 +40,7 @@ body {
 	margin-right: 5px;
 }
 
-.active_sheet:hover {
+.sheets .active_sheet:hover {
 	background-color: #dfe3e8;
 }
 
@@ -80,6 +80,7 @@ body {
 			border: 1px solid #dadcdd;
 			cursor: cell;
 			text-align: right;
+			white-space: nowrap;
 		}
 
 		td:hover {
@@ -92,7 +93,6 @@ body {
 			width: 100%;
 			cursor: cell;
 			display: block;
-			width: 63px;
 		}
 		
 		input:hover {
@@ -114,7 +114,7 @@ body {
 	border-bottom: 1px solid #dadcdd;
 }
 
-span {
+.sheets span {
 	display: inline-block;
 	margin: -2px 0 0 0;
 	padding: 3px 7px;
@@ -130,8 +130,47 @@ span {
 	background-color: #fff9a2;
 }
 
-span:hover {
+.sheets span:hover {
 	background-color: #c4c8cc;
+}
+
+.mirror {
+	position: fixed;
+	top: 25px;
+	left: 0;
+	width: 99%;
+	background-color: #dfe3e8;
+	padding: 0 1%;
+}
+
+#mirror {
+	border: 1px solid #dadcdd;
+	height: 26px;
+	padding: 0 5px;
+	width: 92%;
+	margin: 0;
+}
+
+#mirror:hover {
+	background: #fff;
+}
+
+#mirror:focus {
+	background: #fff;
+	box-shadow: none;
+}
+
+.tdShow {
+	display: block;
+	float: left;
+	border: 1px solid #dadcdd;
+	height: 26px;
+	width: 6%;
+	background-color: #fff;
+	margin-right: 0.5%;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 25px;
 }
 
 .icon-plus-sign {

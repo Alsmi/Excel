@@ -7,6 +7,7 @@ var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var alphabetLength = alphabet.length;
 var active_sheet = document.getElementsByClassName('active_sheet');
 var filled_cells = document.getElementsByClassName('filled');
+var lastTd = document.getElementsByClassName('lastTd');
 var currCol;
 
 table.createTable();
@@ -20,11 +21,15 @@ var td = document.getElementsByTagName('td');
 var selected_cells = document.getElementsByClassName('selected_td');
 var coordinate_td = document.getElementsByClassName('coordinate_td');
 var server_memory = [];
-
-
+var mirror = document.getElementById('mirror');
+var tdShow = document.getElementsByClassName('tdShow');
+var key_code = {
+  ENTER: 13
+};
+var inProcess;
 
 excel.addEventListener("blur", function(event) {
-	if (event.target.tagName === 'INPUT') {
+	if (event.target.tagName === 'INPUT' && event.target.id != 'mirror') {
 		if(event.target.value[0] === '=') {
 			table.getMath ();
 		}
@@ -40,7 +45,7 @@ excel.addEventListener("click", function(event){
 		table.onClickTh();
 	}
 
- 	else if (event.target.tagName === 'SPAN') {
+ 	else if (event.target.tagName === 'SPAN' && event.target.className != 'tdShow') {
  		table.onClickSpan();
 	 	table.getStorageObject();
 	 	// table.getJSONData('textfile.txt', function(data){
@@ -52,6 +57,10 @@ excel.addEventListener("click", function(event){
 			// 		}
 			// 	}	
 			// });
+ 	}
+
+ 	else if (event.target.id === 'mirror') {
+ 		table.onClickMirror();
  	}
 
  	else if (event.target.tagName === 'TD') {
@@ -68,7 +77,7 @@ excel.addEventListener("contextmenu", function(event){
 
 excel.addEventListener("keydown", function(event){
 	if (event.target.tagName === 'INPUT') {
-		if(event.keyCode === 13 && event.target.value[0] === '=') {
+		if(event.keyCode === key_code.ENTER && event.target.value[0] === '=') {
 			table.getMath ();
 		}
 	}
@@ -86,4 +95,29 @@ window.addEventListener("load", table.getStorageObject());
 // 	}	
 // }));
 
+excel.addEventListener("keyup", function(event){
+	if (event.target.tagName === 'INPUT' && event.target.id != 'mirror') {
+		table.keyUpTd();
+	}
+	else if (event.target.id === 'mirror') {
+		table.keyUpMirror();
+	}
+});
 
+excel.addEventListener("mousedown", function(event){
+	if (event.target.tagName === 'TD') {
+		table.mousedownTd();
+	}
+});
+
+excel.addEventListener("mouseup", function(event){
+	if (event.target.tagName === 'TD') {
+		table.mouseupTd();
+	}
+});
+
+excel.addEventListener("mouseover", function(event){
+	if (event.target.tagName === 'TD') {
+		table.mouseoverTd();
+	}
+});

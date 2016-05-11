@@ -41,6 +41,8 @@ class Excel {
 
 	onClickTh () {
 
+		mirror.value = '';
+
 		for (let n = 0; n < lines.length; n++) {
 			lines[n].classList.remove('selected_line');
 			lines[n].classList.remove('coordinate_td');
@@ -80,6 +82,7 @@ class Excel {
 
 	onClickSpan () {
 
+		mirror.value = '';
 		var count_sheet = 0;
 	 		
 		for (let i = 0; i < lines.length; i++) {
@@ -113,7 +116,8 @@ class Excel {
 	}
 
 	onClickTd () {
-
+		tdShow[0].innerText = event.target.id;
+		mirror.value = event.target.innerText;
 		if (!event.target.hasChildNodes() || event.target.hasChildNodes() && event.target.childNodes[0].nodeType != 'input') {
 	 			input = document.createElement('input');
 	 			input.value = event.target.innerHTML;
@@ -132,9 +136,15 @@ class Excel {
 					lines[i].classList.add('coordinate_td');
 				}
 			}
+
+			if (lastTd.length) {
+				lastTd[0].classList.remove('lastTd');
+			}
 	}
 
 	onBlurInput () {
+		event.target.parentNode.classList.add('lastTd');
+		tdShow[0].innerText = '';
 
 		if (event.target.value != '') {
 			event.target.parentNode.classList.add('filled');
@@ -143,7 +153,7 @@ class Excel {
 			event.target.parentNode.classList.remove('filled');
 		}
 
-		event.target.parentNode.innerHTML = input.value;
+		event.target.parentNode.innerHTML = event.target.value;
 
 		for (let i = 0; i < lines.length; i++) {
 			lines[i].classList.remove('coordinate_td');
@@ -264,6 +274,51 @@ class Excel {
 		}
 		var str = event.target.value.replace('=', "");
 		event.target.value = eval(str);
+	}
+
+	keyUpTd() {
+		mirror.value = event.target.value;
+	}
+
+	keyUpMirror() {
+		lastTd[0].innerText = mirror.value;
+	}
+
+	onClickMirror() {
+		tdShow[0].innerText = lastTd[0].id;
+	}
+
+	mousedownTd() {
+		for (let i=0; i<td.length; i++) {
+			td[i].classList.remove('selected_td');
+		}
+		inProcess = true;
+		event.target.classList.add('selected_td');
+	}
+
+	mouseoverTd() {
+		if (inProcess === true) {
+			if (!event.target.classList.contains('selected_td')) {
+				event.target.classList.add('selected_td');
+			}
+			else {
+				event.target.classList.remove('selected_td');
+			}
+		}
+		for (let k=0; k<selected_cells.length; k++) {
+			for (let i = 0; i < lines.length; i++) {
+				if (selected_cells[k].parentNode.rowIndex === lines[i].parentNode.parentNode.rowIndex || selected_cells[k].cellIndex === lines[i].parentNode.cellIndex) {
+					lines[i].classList.add('coordinate_td');
+				}
+				else if (event.target.parentNode.rowIndex === lines[i].parentNode.parentNode.rowIndex && selected_cells[k].parentNode.rowIndex != lines[i].parentNode.parentNode.rowIndex || event.target.cellIndex === lines[i].parentNode.cellIndex && selected_cells[k].cellIndex != lines[i].parentNode.cellIndex) {
+					lines[i].classList.remove('coordinate_td');
+				}
+			}
+		}
+	}
+
+	mouseupTd() {
+		inProcess = false;
 	}
 }
 
