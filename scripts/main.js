@@ -103,15 +103,3 @@ excel.addEventListener("keyup", function(event){
 		table.keyUpMirror();
 	}
 });
-
-excel.addEventListener("mousedown", function(event){
-	if (event.target.tagName === 'TD') {
-		table.mousedownTd();
-	}
-});
-
-excel.addEventListener("mouseup", function(event){
-	if (event.target.tagName === 'TD') {
-		table.mouseupTd();
-	}
-});

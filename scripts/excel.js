@@ -287,18 +287,6 @@ class Excel {
 	onClickMirror() {
 		tdShow[0].innerText = lastTd[0].id;
 	}
-
-	mousedownTd() {
-		for (let i=0; i<td.length; i++) {
-			td[i].classList.remove('selected_td');
-		}
-		inProcess = true;
-		event.target.classList.add('selected_td');
-	}
-
-	mouseupTd() {
-		inProcess = false;
-	}
 }
 
 
