@@ -115,9 +115,3 @@ excel.addEventListener("mouseup", function(event){
 		table.mouseupTd();
 	}
 });
-
-excel.addEventListener("mouseover", function(event){
-	if (event.target.tagName === 'TD') {
-		table.mouseoverTd();
-	}
-});

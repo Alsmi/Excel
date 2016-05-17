@@ -104,7 +104,7 @@ class Excel {
 			var sheet = document.createElement('span');
 			var sheetsContainer = document.querySelector('.sheets');
 			sheetsContainer.appendChild(sheet);
-			sheet.innerHTML = ('Sheet'+count_sheet);
+			sheet.innerHTML = ('Sheet'+(count_sheet-1));
 			sheet.classList.add('active_sheet');
 			for (let n = 0; n < filled_cells.length; n++) {
 				filled_cells[n].innerHTML =  null;
@@ -294,27 +294,6 @@ class Excel {
 		}
 		inProcess = true;
 		event.target.classList.add('selected_td');
-	}
-
-	mouseoverTd() {
-		if (inProcess === true) {
-			if (!event.target.classList.contains('selected_td')) {
-				event.target.classList.add('selected_td');
-			}
-			else {
-				event.target.classList.remove('selected_td');
-			}
-		}
-		for (let k=0; k<selected_cells.length; k++) {
-			for (let i = 0; i < lines.length; i++) {
-				if (selected_cells[k].parentNode.rowIndex === lines[i].parentNode.parentNode.rowIndex || selected_cells[k].cellIndex === lines[i].parentNode.cellIndex) {
-					lines[i].classList.add('coordinate_td');
-				}
-				else if (event.target.parentNode.rowIndex === lines[i].parentNode.parentNode.rowIndex && selected_cells[k].parentNode.rowIndex != lines[i].parentNode.parentNode.rowIndex || event.target.cellIndex === lines[i].parentNode.cellIndex && selected_cells[k].cellIndex != lines[i].parentNode.cellIndex) {
-					lines[i].classList.remove('coordinate_td');
-				}
-			}
-		}
 	}
 
 	mouseupTd() {
